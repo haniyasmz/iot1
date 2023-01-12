@@ -19,8 +19,14 @@ st.write(df)
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
+# def init_connection():
+#     return psycopg2.connect(**st.secrets["postgres"])
+
 def init_connection():
-    return psycopg2.connect(**st.secrets["postgres"])
+    return psycopg2.connect(host='localhost',
+        database='smart_hand_sanitizer',
+        user='postgres',
+        password='rocky99')
 
 conn = init_connection()
 
